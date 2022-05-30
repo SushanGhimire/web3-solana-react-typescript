@@ -15,7 +15,7 @@ const ConnectWallet: React.FC = () => {
 
   return (
     <div>
-      {!provider && !walletKey ? (
+      {provider === undefined || walletKey === undefined ? (
         <button
           onClick={() => {
             connectToPhantomWallet(setProvider, setWalletKey);

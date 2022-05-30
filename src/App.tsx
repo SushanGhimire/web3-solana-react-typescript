@@ -1,5 +1,6 @@
 import React from "react";
 import ConnectWallet from "./components/ConnectWallet";
+import FetchWalletBalance from "./components/FetchWalletBalance";
 import Withdraw from "./components/Withdraw";
 
 const App: React.FC = () => {
@@ -7,6 +8,7 @@ const App: React.FC = () => {
     <div className="app">
       <ConnectWallet />
       <Withdraw />
+      <FetchWalletBalance />
     </div>
   );
 };
