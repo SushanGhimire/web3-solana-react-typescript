@@ -1,10 +1,15 @@
-import { clusterApiUrl, Connection } from "@solana/web3.js";
+import { clusterApiUrl, Connection, LAMPORTS_PER_SOL } from "@solana/web3.js";
 import React from "react";
 
-const FetchWalletBalance: React.FC = () => {
+interface Props {
+  setWalletBalance: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const FetchWalletBalance: React.FC<Props> = ({ setWalletBalance }) => {
   const fetchBalance = async () => {
-    const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
-    console.log(connection);
+    const connection = new Connection(clusterApiUrl("devnet"));
+    const res = await connection.getBalance(window.solana.publicKey);
+    setWalletBalance(res / LAMPORTS_PER_SOL);
   };
 
   return (
