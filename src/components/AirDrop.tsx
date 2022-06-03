@@ -1,10 +1,13 @@
 import React from "react";
 import { airDropSol } from "../services/airdropSol";
 
-const AirDrop: React.FC = () => {
+interface Props {
+  setWalletBalance: React.Dispatch<React.SetStateAction<number>>;
+}
+const AirDrop: React.FC<Props> = ({ setWalletBalance }) => {
   return (
     <div>
-      <button onClick={airDropSol}>Air Drop</button>
+      <button onClick={() => airDropSol(setWalletBalance)}>Air Drop</button>
     </div>
   );
 };

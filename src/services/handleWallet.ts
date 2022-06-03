@@ -1,3 +1,4 @@
+import { successToast } from "../components/toastifier/toastify";
 import { getProvider } from "../phantom/getProvider";
 import { PhantomProvider } from "../phantom/PhontomProvider";
 
@@ -24,6 +25,7 @@ const connectWallet = async (
   try {
     const res = await solana.connect();
     setWalletKey(res.publicKey.toString());
+    successToast("Wallet connected.");
   } catch (err: any) {
     console.log(err.response);
   }
@@ -40,7 +42,7 @@ const handleWalletDisconnect = async (
   const { solana } = window;
   try {
     await solana.disconnect();
-
+    successToast("Wallet dissconnected");
     setWalletKey(undefined);
     setProvider(undefined);
   } catch (err: any) {

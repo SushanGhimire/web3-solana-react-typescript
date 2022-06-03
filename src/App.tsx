@@ -16,7 +16,7 @@ const App: React.FC = () => {
           <ConnectWallet />
           <FetchWalletBalance setWalletBalance={setWalletBalance} />
           <MakeTransaction />
-          <AirDrop />
+          <AirDrop setWalletBalance={setWalletBalance} />
           {/* <Withdraw /> */}
         </div>
         <div className="app">
