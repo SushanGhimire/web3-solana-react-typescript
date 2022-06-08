@@ -12,4 +12,4 @@ const AirDrop: React.FC<Props> = ({ setWalletBalance }) => {
   );
 };
 
-export default AirDrop;
+export default React.memo(AirDrop);

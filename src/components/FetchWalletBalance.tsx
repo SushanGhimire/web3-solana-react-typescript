@@ -15,4 +15,4 @@ const FetchWalletBalance: React.FC<Props> = ({ setWalletBalance }) => {
   );
 };
 
-export default FetchWalletBalance;
+export default React.memo(FetchWalletBalance);

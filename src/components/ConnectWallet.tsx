@@ -12,7 +12,11 @@ const ConnectWallet: React.FC = () => {
   const [walletKey, setWalletKey] = useState<PhantomProvider | undefined>(
     undefined
   );
-
+  useEffect(() => {
+    setTimeout(() => {
+      connectToPhantomWallet(setProvider, setWalletKey);
+    }, 1000);
+  }, []);
   return (
     <div>
       {provider === undefined || walletKey === undefined ? (
@@ -36,4 +40,4 @@ const ConnectWallet: React.FC = () => {
   );
 };
 
-export default ConnectWallet;
+export default React.memo(ConnectWallet);

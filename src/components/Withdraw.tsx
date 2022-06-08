@@ -8,4 +8,4 @@ const Withdraw: React.FC = () => {
   );
 };
 
-export default Withdraw;
+export default React.memo(Withdraw);

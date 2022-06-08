@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import AirDrop from "./components/AirDrop";
 import ConnectWallet from "./components/ConnectWallet";
 import FetchWalletBalance from "./components/FetchWalletBalance";
 import MakeTransaction from "./components/MakeTransaction";
-import { connectToPhantomWallet } from "./services/handleWallet";
 // import Withdraw from "./components/Withdraw";
 
 const App: React.FC = () => {
   const [walletBalance, setWalletBalance] = useState<number>(0.0);
-  useEffect(() => {
-    connectToPhantomWallet(undefined, undefined);
-  }, []);
   return (
     <>
       <ToastContainer />

@@ -8,4 +8,4 @@ const MakeTransaction: React.FC = () => {
   );
 };
 
-export default MakeTransaction;
+export default React.memo(MakeTransaction);
