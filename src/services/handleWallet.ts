@@ -3,18 +3,18 @@ import { getProvider } from "../phantom/getProvider";
 import { PhantomProvider } from "../phantom/PhontomProvider";
 
 const connectToPhantomWallet = (
-  setProvider: React.Dispatch<
+  setProvider?: React.Dispatch<
     React.SetStateAction<PhantomProvider | undefined>
   >,
-  setWalletKey: React.Dispatch<
+  setWalletKey?: React.Dispatch<
     React.SetStateAction<PhantomProvider | undefined>
   >
 ) => {
   const provider = getProvider();
   if (provider) {
-    setProvider(provider);
-    connectWallet(setWalletKey);
-  } else setProvider(undefined);
+    setProvider && setProvider(provider);
+    setWalletKey && connectWallet(setWalletKey);
+  } else setProvider && setProvider(undefined);
 };
 const connectWallet = async (
   setWalletKey: React.Dispatch<
