@@ -1,9 +1,10 @@
 import React from "react";
+import { createTransaction } from "../services/createTransaction";
 
 const MakeTransaction: React.FC = () => {
   return (
     <div>
-      <button>MakeTransaction</button>
+      <button onClick={createTransaction}>MakeTransaction</button>
     </div>
   );
 };
