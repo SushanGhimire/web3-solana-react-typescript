@@ -5,11 +5,18 @@ import ConnectWallet from "./components/ConnectWallet";
 import FetchPdaBalance from "./components/FetchPdaBalance";
 import FetchWalletBalance from "./components/FetchWalletBalance";
 import MakeTransaction from "./components/MakeTransaction";
+import { depositSolToPda } from "./services/deposit";
 // import Withdraw from "./components/Withdraw";
 
 const App: React.FC = () => {
+  const [sol, setSol] = useState<string>("");
   const [walletBalance, setWalletBalance] = useState<number>(0.0);
   const [pdaBalance, setPDABalance] = useState<number>(0.0);
+  const handleDeposit = (e: React.FormEvent): void => {
+    e.preventDefault();
+    depositSolToPda(parseInt(sol), setPDABalance, setWalletBalance);
+  };
+
   return (
     <>
       <ToastContainer />
@@ -30,6 +37,24 @@ const App: React.FC = () => {
           <b>PDA Balance</b>
           <b>{pdaBalance} SOL</b>
         </div>
+        <form
+          className="app"
+          onSubmit={(e) => {
+            handleDeposit(e);
+          }}
+        >
+          <label htmlFor="">SOL</label>
+          <input
+            type="number"
+            name=""
+            id=""
+            value={sol}
+            onChange={(e: React.FormEvent<HTMLInputElement>) =>
+              setSol(e.currentTarget.value)
+            }
+          />
+          <button>Deposit Sol to PDA</button>
+        </form>
       </div>
     </>
   );
